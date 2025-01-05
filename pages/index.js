@@ -1,94 +1,88 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import { textContent } from './content';
 
 export default function Home() {
     return (
         <div>
             <Head>
-                <title>Adventure Sports Club</title>
+                <title>{textContent.title}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
 
             <header>
                 <nav>
-                    <div className="logo">Adventure Sports Club</div>
+                    <div className="logo">{textContent.logo}</div>
                     <ul className="nav-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#activities">Activities</a></li>
-                        <li><a href="#schedule">Schedule</a></li>
-                        <li><a href="#membership">Membership</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home">{textContent.navLinks.home}</a></li>
+                        <li><a href="#activities">{textContent.navLinks.activities}</a></li>
+                        <li><a href="#schedule">{textContent.navLinks.schedule}</a></li>
+                        <li><a href="#membership">{textContent.navLinks.membership}</a></li>
+                        <li><a href="#contact">{textContent.navLinks.contact}</a></li>
                     </ul>
                 </nav>
             </header>
 
             <main>
                 <section id="home" className="hero">
-                    <h1>Welcome to Adventure Sports Club</h1>
-                    <p>Join us for exciting outdoor activities and sports adventures!</p>
-                    <a href="#membership" className="cta-button">Become a Member</a>
+                    <h1>{textContent.hero.heading}</h1>
+                    <p>{textContent.hero.description}</p>
+                    <a href="#membership" className="cta-button">{textContent.hero.cta}</a>
                 </section>
 
                 <section id="activities" className="activities">
-                    <h2>Our Activities</h2>
+                    <h2>{textContent.activities.heading}</h2>
                     <div className="activity-grid">
-                        <div className="activity-card">
-                            <Image src="https://placehold.co/500x300.png" alt="Hiking" width={500} height={300} />
-                            <h3>Hiking</h3>
-                            <p>Weekly group hikes for all skill levels</p>
-                        </div>
-                        <div className="activity-card">
-                            <Image src="https://placehold.co/500x300.png" alt="Cycling" width={500} height={300} />
-                            <h3>Cycling</h3>
-                            <p>Road and mountain biking adventures</p>
-                        </div>
-                        <div className="activity-card">
-                            <Image src="https://placehold.co/500x300.png" alt="Climbing" width={500} height={300} />
-                            <h3>Rock Climbing</h3>
-                            <p>Indoor and outdoor climbing sessions</p>
-                        </div>
+                        {Object.keys(textContent.activities).filter(key => key !== 'heading').map(activityKey => {
+                            const activity = textContent.activities[activityKey];
+                            return (
+                                <div key={activityKey} className="activity-card">
+                                    <Image src="https://placehold.co/500x300.png" alt={activity.title} width={500} height={300} />
+                                    <h3>{activity.title}</h3>
+                                    <p>{activity.description}</p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </section>
 
                 <section id="schedule" className="schedule">
-                    <h2>Upcoming Events</h2>
+                    <h2>{textContent.schedule.heading}</h2>
                     <div className="event-list">
                         {/* Add your events here */}
                     </div>
                 </section>
 
                 <section id="membership" className="membership">
-                    <h2>Join Our Community</h2>
+                    <h2>{textContent.membership.heading}</h2>
+                    
                     <div className="membership-options">
                         <div className="membership-card">
-                            <h3>Basic Membership</h3>
-                            <p>Access to weekly activities</p>
-                            <p className="price">$30/month</p>
-                            <button className="join-button">Join Now</button>
-                        </div>
-                        <div className="membership-card">
-                            <h3>Premium Membership</h3>
-                            <p>Access to all activities + equipment rental</p>
-                            <p className="price">$50/month</p>
-                            <button className="join-button">Join Now</button>
+                            <h3>{textContent.membership.basic.title}</h3>
+                            <p>{textContent.membership.basic.description}</p>
+                            <a href={textContent.membership.basic.link} className="join-button">Liity nyt</a>
                         </div>
                     </div>
                 </section>
 
                 <section id="contact" className="contact">
-                    <h2>Contact Us</h2>
-                    <form className="contact-form">
-                        <input type="text" placeholder="Name" required />
-                        <input type="email" placeholder="Email" required />
-                        <textarea placeholder="Message" required></textarea>
-                        <button type="submit">Send Message</button>
-                    </form>
+                    <h2>{textContent.contact.heading}</h2>
+                    <div className="contact-people">
+                        {textContent.contact.people.map((person, index) => (
+                            <div key={index} className="contact-person">
+                                <h3>{person.title}</h3>
+                                <p>{person.name}</p>
+                                <p>{person.email}</p>
+                                <p>{person.phone}</p>
+                            </div>
+                        ))}
+                    </div>
                 </section>
             </main>
 
             <footer>
-                <p>&copy; 2024 Adventure Sports Club. All rights reserved.</p>
+                <p>{textContent.footer}</p>
             </footer>
         </div>
     );

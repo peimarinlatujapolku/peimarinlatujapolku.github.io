@@ -44,6 +44,9 @@ export default function Subpage({ subpage }) {
                                     <Image src={image.src} alt={image.alt} layout="intrinsic" width={500} height={300} />
                                 ))}
                                 <p>{item.description}</p>
+                                {item.contact && item.contact.link && item.contact.linkText && (
+                                    <a href={item.contact.link} className="contact-link">{item.contact.linkText}</a>
+                                )}
                             </div>
                         ))}
                     </div>

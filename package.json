@@ -1,5 +1,5 @@
 {
-  "name": "adventure-sports-club",
+  "name": "Peimarin-latu-ja-polku-homesite",
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
@@ -8,8 +8,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "next": "^13.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "engines": {
+    "node": ">=18.17.1"
   }
 }

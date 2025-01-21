@@ -61,22 +61,20 @@ export default function Home() {
                     </div>
                 </section>
 
-                <section id="schedule" className="schedule">
-                    <h2>{textContent.schedule.heading}</h2>
-                    <div className="event-list">
-                        {/* Add your events here */}
-                    </div>
-                </section>
-
                 <section id="membership" className="membership">
                     <h2>{textContent.membership.heading}</h2>
                     
                     <div className="membership-options">
-                        <div className="membership-card">
-                            <h3>{textContent.membership.basic.title}</h3>
-                            <p>{textContent.membership.basic.description}</p>
-                            <a href={textContent.membership.basic.link} className="join-button">Liity nyt</a>
-                        </div>
+                        {Object.keys(textContent.membership).filter(key => key !== 'heading').map(membershipKey => {
+                            const membership = textContent.membership[membershipKey];
+                            return (
+                                <div className="membership-card">
+                                    <h3>{membership.title}</h3>
+                                    <p>{membership.description}</p>
+                                    <a href={membership.link} className="join-button">{membership.linkText}</a>
+                                </div>
+                            );
+                        })}
                     </div>
                 </section>
 

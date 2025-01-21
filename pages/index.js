@@ -38,6 +38,13 @@ export default function Home() {
                     <p>{textContent.hero.description}</p>
                     <a href="#membership" className="cta-button">{textContent.hero.cta}</a>
                 </section>
+                <section id="about" className="about">
+                    <h2>{textContent.about.heading}</h2>
+                    <h3>{textContent.about.subheading}</h3>
+                    {textContent.about.description.map((paragraph, index) => (
+                        <p key={index}>{paragraph}</p>
+                    ))}
+                </section>
 
                 <section id="activities" className="activities">
                     <h2>{textContent.activities.heading}</h2>

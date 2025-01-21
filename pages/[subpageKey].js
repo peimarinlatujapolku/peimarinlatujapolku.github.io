@@ -40,10 +40,10 @@ export default function Subpage({ subpage }) {
                     <div className="subpage-grid">
                         {subpage.content.map((item, index) => (
                             <div key={index} className="subpage-card">
-                                {item.images.map((image, index) => (
-                                    <Image src={image} alt={item.title} width={500} height={300} />
-                                ))}
                                 <h3>{item.title}</h3>
+                                {item.images.map((image, index) => (
+                                    <Image src={image.src} alt={image.alt} layout="responsive" width={500} height={300} />
+                                ))}
                                 <p>{item.description}</p>
                             </div>
                         ))}

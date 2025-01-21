@@ -56,8 +56,8 @@ nav {
 
 /* Hero section */
 .hero {
-    background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
-                url('https://placehold.co/1200x400') no-repeat center center/cover;
+    background: linear-gradient(rgba(48, 0, 0, 0.8), rgba(255,255,255,0.3)),
+                url('/images/banner.jpg') no-repeat center center/cover;
     padding: 8rem 2rem;
     text-align: center;
 }
@@ -65,7 +65,13 @@ nav {
 .hero h1 {
     font-size: 3.5rem;
     font-weight: 800;
-    color: #1a202c;
+    color: #f0f0f0;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: #f0f0f0;
     margin-bottom: 1.5rem;
 }
 

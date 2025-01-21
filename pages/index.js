@@ -18,7 +18,6 @@ export default function Home() {
                     <ul className="nav-links">
                         <li><a href="#home">{textContent.navLinks.home}</a></li>
                         <li><a href="#activities">{textContent.navLinks.activities}</a></li>
-                        <li><a href="#schedule">{textContent.navLinks.schedule}</a></li>
                         <li><a href="#membership">{textContent.navLinks.membership}</a></li>
                         <li><a href="#contact">{textContent.navLinks.contact}</a></li>
                         {Object.keys(textContent.subpages).map(subpageKey => (
@@ -53,7 +52,7 @@ export default function Home() {
                             const activity = textContent.activities[activityKey];
                             return (
                                 <div key={activityKey} className="activity-card">
-                                    <Image src="https://placehold.co/500x300.png" alt={activity.title} width={500} height={300} />
+                                    <Image src={activity.image.src} alt={activity.image.alt} width={500} height={300} />
                                     <h3>{activity.title}</h3>
                                     <p>{activity.description}</p>
                                 </div>
